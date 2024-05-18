@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 
-import com.example.ph27127_damli_sp24.DB.CreateData;
+import com.example.ph27127_damli_sp24.DB.DbController;
 import com.example.ph27127_damli_sp24.Models.NhanVien;
 
 import java.util.ArrayList;
@@ -14,19 +14,19 @@ import java.util.List;
 
 public class NVDao {
     SQLiteDatabase sqlite;
-    CreateData createData;
+    DbController dbController;
 
     public NVDao(Context context) {
-        createData = new CreateData(context);
-        sqlite = createData.getWritableDatabase();
+        dbController = new DbController(context);
+        sqlite = dbController.getWritableDatabase();
     }
 
     public void OPEN() {
-        sqlite = createData.getWritableDatabase();
+        sqlite = dbController.getWritableDatabase();
     }
 
     public void Close() {
-        createData.close();
+        dbController.close();
     }
 
     public long ADDNV(NhanVien nhanVien) {

@@ -4,11 +4,11 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class CreateData extends SQLiteOpenHelper {
+public class DbController extends SQLiteOpenHelper {
     private static final String DB_NAME = "PNLINB.db";
     private static final int VERSION = 1;
 
-    public CreateData(Context context) {
+    public DbController(Context context) {
         super(context, DB_NAME, null, VERSION);
     }
 
