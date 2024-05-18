@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
         mHeaderview = navigationView.getHeaderView(0);
         tv_user = mHeaderview.findViewById(R.id.tv_user);
-//        img_user = mHeaderview.findViewById(R.id.img_user);
+        img_user = mHeaderview.findViewById(R.id.img_user);
         Intent intent = getIntent();
         String user = intent.getStringExtra("admintion");
 
