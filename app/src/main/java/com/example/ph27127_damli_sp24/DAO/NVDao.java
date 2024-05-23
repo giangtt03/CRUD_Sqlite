@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 
-import com.example.ph27127_damli_sp24.DB.CreateData;
+import com.example.ph27127_damli_sp24.DB.DbHelper;
 import com.example.ph27127_damli_sp24.Models.NhanVien;
 
 import java.util.ArrayList;
@@ -14,10 +14,10 @@ import java.util.List;
 
 public class NVDao {
     SQLiteDatabase sqlite;
-    CreateData createData;
+    DbHelper createData;
 
     public NVDao(Context context) {
-        createData = new CreateData(context);
+        createData = new DbHelper(context);
         sqlite = createData.getWritableDatabase();
     }
 
