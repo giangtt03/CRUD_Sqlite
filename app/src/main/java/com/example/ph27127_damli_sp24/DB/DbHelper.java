@@ -55,10 +55,9 @@ public class DbHelper extends SQLiteOpenHelper {
                         "ngay DATE NOT NULL, " +
                         "traSach INTEGER NOT NULL)";
         db.execSQL(tb_pm);
-        // tk admin
-        // Thêm tài khoản admin mặc định
-        String insertAdmin = "INSERT INTO NhanVien (maNV, hoTen, matKhau) VALUES ('admin', 'Administrator', '123')";
-        db.execSQL(insertAdmin);
+
+//        String insertAdmin = "INSERT INTO NhanVien (maNV, hoTen, matKhau) VALUES ('admin', 'Administrator', '123')";
+//        db.execSQL(insertAdmin);
     }
 
     @Override
