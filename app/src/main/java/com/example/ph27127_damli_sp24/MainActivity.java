@@ -8,7 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String user = intent.getStringExtra("admintion");
 
+
         if (user != null) {
             tv_user.setText("Wellcome " + user + "!");
             if (user.equals("admin")) {
@@ -68,6 +71,20 @@ public class MainActivity extends AppCompatActivity {
             tv_user.setText("Wellcome Guest!");
             navigationView.getMenu().findItem(R.id.nav_admin).setVisible(false);
         }
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.nav_home) {
+                    Toast.makeText(getApplicationContext(), "Trang chu", Toast.LENGTH_SHORT).show();
+                } else if (menuItem.getItemId() == R.id.nav_gallery) {
+                    Toast.makeText(getApplicationContext(), "Gallery", Toast.LENGTH_SHORT).show();
+                }
+
+                drawer.close();
+                return false;
+            }
+        });
     }
 
     @Override
@@ -75,6 +92,18 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == R.id.nav_home) {
+            Toast.makeText(getApplicationContext(), "Trang chu", Toast.LENGTH_SHORT).show();
+        } else if (item.getItemId() == R.id.nav_gallery) {
+            Toast.makeText(getApplicationContext(), "Gallery", Toast.LENGTH_SHORT).show();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
